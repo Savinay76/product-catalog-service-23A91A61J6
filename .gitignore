@@ -1,0 +1,28 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Environment variables (Crucial for security)
+.env
+.env.test
+.env.local
+
+# Python virtual environment (if still present)
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Docker logs and data
+.docker
+*.log
+npm-debug.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
