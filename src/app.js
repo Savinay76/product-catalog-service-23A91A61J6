@@ -14,6 +14,11 @@ app.use('/products', productRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+// Health check endpoint for container orchestration
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', uptime: process.uptime(), timestamp: new Date().toISOString() });
+});
+
 const PORT = process.env.PORT || 8000;
 
 // This function checks the DB connection and syncs the models (creates tables)
@@ -24,7 +29,7 @@ async function startServer() {
 
     // sync({ force: true }) will drop tables and recreate them. 
     // Use this for development to ensure the schema matches your code.
-    await sequelize.sync({ force: false }); 
+    await sequelize.sync({ force: false });
     console.log('✅ Database models synced.');
     await seedDatabase();
 
