@@ -7,7 +7,7 @@ router.get('/', productController.getAll);
 router.get('/search', productController.search);
 router.get('/:id', productController.getById);
 
-// ADD THESE TWO LINES TO COMPLETE STEP 2.3
+// Full CRUD: update product by ID and delete product by ID
 router.put('/:id', productController.update);
 router.delete('/:id', productController.delete);
 
